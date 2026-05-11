@@ -15,8 +15,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: "Patio'Time Café",
-  description: "Welcome to Patio'Time Café - Where Luxury meets Culinary Excellence",
+  title: "Piccante Restaurant",
+  description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
 };
 
 export default function RootLayout({ children }) {
