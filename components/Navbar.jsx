@@ -32,7 +32,6 @@ export default function Navbar() {
               <Phone size={13} />
               <span>+381 69 742208</span>
             </div>
-
           </div>
         </div>
       </div>
@@ -57,7 +56,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="relative group pb-2">
               {link.label}
-              <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#DC5803] origin-left transition-transform duration-300 ease-out ${pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+              <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#C22127] origin-left transition-transform duration-300 ease-out ${pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </Link>
           ))}
         </div>
@@ -92,12 +91,12 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`${pathname === link.href ? 'text-[#DC5803]' : 'hover:text-[#DC5803]'} transition-colors`}
+                  className={`${pathname === link.href ? 'text-[#C22127]' : 'hover:text-[#C22127]'} transition-colors`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link href="/kontakt" onClick={() => setIsOpen(false)} className="mt-8 border-[3px] border-[#DC5803] text-[#DC5803] px-[32px] py-[12px] text-[14px] hover:bg-[#DC5803] hover:text-black transition-colors rounded-[2px]">
+              <Link href="/kontakt" onClick={() => setIsOpen(false)} className="mt-8 border-[3px] border-[#C22127] text-[#C22127] px-[32px] py-[12px] text-[14px] hover:bg-[#C22127] hover:text-black transition-colors rounded-[2px]">
                 REZERVACIJA
               </Link>
             </div>

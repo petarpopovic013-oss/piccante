@@ -67,14 +67,14 @@ export default function MenuSection() {
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { duration: 0.6 } }
             }}
-            className="flex items-center justify-center gap-2 md:gap-4 text-[#DC5803] uppercase tracking-[0.05em] text-[14px] md:text-[18px] mb-4 font-sans font-extrabold"
+            className="flex items-center justify-center gap-2 md:gap-4 text-[#C22127] uppercase tracking-[0.05em] text-[14px] md:text-[18px] mb-4 font-sans font-extrabold"
           >
             <motion.span
               variants={{
                 hidden: { scaleX: 0 },
                 visible: { scaleX: 1, transition: { duration: 0.8, ease: "easeInOut" } }
               }}
-              className="block w-[40px] md:w-[80px] h-[1px] bg-[#DC5803] origin-right"
+              className="block w-[40px] md:w-[80px] h-[1px] bg-[#C22127] origin-right"
             ></motion.span>
             <span>Preporuka Šefa Kuhinje</span>
             <motion.span
@@ -82,7 +82,7 @@ export default function MenuSection() {
                 hidden: { scaleX: 0 },
                 visible: { scaleX: 1, transition: { duration: 0.8, ease: "easeInOut" } }
               }}
-              className="block w-[40px] md:w-[80px] h-[1px] bg-[#DC5803] origin-left"
+              className="block w-[40px] md:w-[80px] h-[1px] bg-[#C22127] origin-left"
             ></motion.span>
           </motion.div>
           <motion.h2
@@ -118,7 +118,8 @@ export default function MenuSection() {
               alt="Starter"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] relative overflow-hidden group cursor-pointer">
@@ -127,12 +128,13 @@ export default function MenuSection() {
               alt="Starter 2"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div variants={slideInRight} className="flex flex-col justify-start pl-0 md:pl-8">
-            <motion.h3 variants={titleReveal} className="text-[#DC5803] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Predjela</motion.h3>
-            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#DC5803] mt-3 mb-8 origin-left"></motion.div>
+            <motion.h3 variants={titleReveal} className="text-[#C22127] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Predjela</motion.h3>
+            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-3 mb-8 origin-left"></motion.div>
 
             <div className="flex flex-col">
               <MenuItem name="Ricco tortilja" price="1.070,00 RSD" desc="Tortilja sa piletinom, cheddarom, briem i gaudom na svežoj salati sa chilly jogurt sosom" />
@@ -154,8 +156,8 @@ export default function MenuSection() {
       >
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr] gap-10 md:gap-6 items-start">
           <motion.div variants={slideInLeft} className="flex flex-col justify-start pr-0 md:pr-8 order-2 md:order-1">
-            <motion.h3 variants={titleReveal} className="text-[#DC5803] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Pića & Kokteli</motion.h3>
-            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#DC5803] mt-3 mb-8 origin-left"></motion.div>
+            <motion.h3 variants={titleReveal} className="text-[#C22127] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Pića & Kokteli</motion.h3>
+            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-3 mb-8 origin-left"></motion.div>
 
             <div className="flex flex-col">
               <MenuItem name="Piccante Signature Koktel" price="1260,00 RSD" desc="Premium džin, liker od zove, svež krastavac, nana i limeta." />
@@ -171,7 +173,8 @@ export default function MenuSection() {
               alt="Cocktail"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] order-1 md:order-3 relative overflow-hidden group cursor-pointer">
@@ -180,7 +183,8 @@ export default function MenuSection() {
               alt="Cocktail 2"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
         </div>
@@ -201,7 +205,8 @@ export default function MenuSection() {
               alt="Steak"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] relative overflow-hidden group cursor-pointer">
@@ -210,12 +215,13 @@ export default function MenuSection() {
               alt="Fish"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
             />
           </motion.div>
           <motion.div variants={slideInRight} className="flex flex-col justify-start pl-0 md:pl-8">
-            <motion.h3 variants={titleReveal} className="text-[#DC5803] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Glavna Jela</motion.h3>
-            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#DC5803] mt-3 mb-8 origin-left"></motion.div>
+            <motion.h3 variants={titleReveal} className="text-[#C22127] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Glavna Jela</motion.h3>
+            <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-3 mb-8 origin-left"></motion.div>
 
             <div className="flex flex-col">
               <MenuItem name="Biftek u ulju" price="3.900,00 RSD" desc="Biftek grilovan i sečen na taljatu u maslinovom ulju sa začinskim biljem, limunom i soja sosom" />
@@ -235,7 +241,7 @@ export default function MenuSection() {
         variants={fadeUp}
         className="max-w-[1280px] mx-auto px-10 pt-12 pb-0 flex flex-col sm:flex-row items-center justify-center gap-6"
       >
-        <a href="/jelovnik" className="w-full sm:w-auto bg-[#DC5803] text-black px-[42px] py-[15px] text-[13px] uppercase tracking-[0.2em] hover:bg-white transition-colors font-extrabold duration-300 text-center inline-block">
+        <a href="/jelovnik" className="w-full sm:w-auto bg-[#C22127] text-black px-[42px] py-[15px] text-[13px] uppercase tracking-[0.2em] hover:bg-white transition-colors font-extrabold duration-300 text-center inline-block">
           Pogledajte Ceo Meni
         </a>
         <a href="tel:+38169742208" className="w-full sm:w-auto border border-white/30 text-white px-[42px] py-[15px] text-[13px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors font-extrabold duration-300 text-center inline-block">
@@ -257,9 +263,9 @@ function MenuItem({ name, price, desc }) {
       className="py-[20px] border-b border-[rgba(255,255,255,0.08)] font-sans group hover:bg-white/[0.02] transition-colors duration-300 px-4 -mx-4 rounded-md cursor-default"
     >
       <div className="flex items-center gap-3 mb-1">
-        <h4 className="text-white font-serif text-[22px] font-normal whitespace-nowrap group-hover:text-[#DC5803] transition-colors duration-300">{name}</h4>
-        <div className="flex-1 border-b border-dashed border-[rgba(255,255,255,0.2)] group-hover:border-[#DC5803]/50 transition-colors duration-300"></div>
-        <span className="text-white group-hover:text-[#DC5803] transition-colors duration-300 font-serif text-[22px] font-normal whitespace-nowrap">{price}</span>
+        <h4 className="text-white font-serif text-[22px] font-normal whitespace-nowrap group-hover:text-[#C22127] transition-colors duration-300">{name}</h4>
+        <div className="flex-1 border-b border-dashed border-[rgba(255,255,255,0.2)] group-hover:border-[#C22127]/50 transition-colors duration-300"></div>
+        <span className="text-white group-hover:text-[#C22127] transition-colors duration-300 font-serif text-[22px] font-normal whitespace-nowrap">{price}</span>
       </div>
       <p className="text-white/60 text-[15px] mt-2">{desc}</p>
     </motion.div>

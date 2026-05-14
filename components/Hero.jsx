@@ -7,15 +7,15 @@ import Image from 'next/image';
 const slides = [
   {
     image: '/images/hero1.JPG',
-    headingTop: <span className="italic font-normal">Umetnost</span>,
-    headingBottom: <span className="text-[#DC5803] font-bold">Sezonskih Ukusa</span>,
-    subtitle: "Prepustite se nesvakidašnjem putovanju kroz najfinije ukuse. Naša strast je da svaki trenutak vašeg boravka pretvorimo u jedinstveno, luksuzno iskustvo."
+    headingTop: <span className="italic font-normal">Savremena kuhinja</span>,
+    headingBottom: <><span className="text-[#C22127] font-bold">u srcu</span> <span className="text-white">Novog Sada</span></>,
+    subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
   },
   {
     image: '/images/hero2.JPG',
-    headingTop: <span className="italic font-normal">Dobrodošli u</span>,
-    headingBottom: <><span className="text-[#DC5803] font-bold">Restoran</span> <span className="font-bold text-white">Piccante</span></>,
-    subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
+    headingTop: <span className="italic font-normal">Ukusi koji</span>,
+    headingBottom: <><span className="text-[#C22127] font-bold">imaju</span> <span className="text-white">karakter</span></>,
+    subtitle: "Dobrodošli u mesto gde svaki obrok ima svoj ritam, od doručka i poslovnog ručka do večere sa  dragim ljudima. Poznati ukusi, pažljivo odabrani sastojci i prijatna atmosfera čine Piccante restoranom u koji se rado dolazi i često vraća."
   }
 ];
 
@@ -51,7 +51,7 @@ export default function Hero() {
             fill
             className="object-cover object-center"
             priority={currentSlide === 0}
-            quality={85}
+            quality={90}
           />
         </motion.div>
       </AnimatePresence>
@@ -77,10 +77,10 @@ export default function Hero() {
               </p>
 
               <div className="flex items-center space-x-6 text-[13px] uppercase tracking-[0.15em] font-sans font-bold">
-                <a href="/jelovnik" className="border-b-[2px] border-white pb-1 text-white hover:text-[#DC5803] hover:border-[#DC5803] transition-colors">
+                <a href="/jelovnik" className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
                   Jelovnik
                 </a>
-                <a href="tel:+38169742208" className="border-b-[2px] border-white pb-1 text-white hover:text-[#DC5803] hover:border-[#DC5803] transition-colors">
+                <a href="tel:+38169742208" className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
                   Pozovite nas
                 </a>
               </div>

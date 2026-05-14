@@ -18,7 +18,7 @@ export default function ContactPage() {
           <h1 className="font-serif text-[64px] md:text-[80px] text-white mb-8">Kontakt</h1>
           <p className="text-white/60 text-lg max-w-2xl">
             Sve rezervacije se vrše isključivo putem telefona. <br/>
-            Možete nas kontaktirati na: <a href="tel:+38169742208" className="text-[#DC5803] hover:underline font-bold">+381 69 742208</a>
+            Možete nas kontaktirati na: <a href="tel:+38169742208" className="text-[#C22127] hover:underline font-bold">+381 69 742208</a>
           </p>
         </motion.div>
       </section>

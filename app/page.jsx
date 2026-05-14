@@ -47,6 +47,7 @@ export default function Home() {
             className="object-cover object-center block"
             loading="lazy"
             sizes="100vw"
+            quality={90}
           />
         </motion.div>
       </motion.section>
@@ -76,7 +77,7 @@ export default function Home() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-            className="text-[#DC5803] text-[48px] font-bold block text-center mb-4 leading-none font-serif"
+            className="text-[#C22127] text-[48px] font-bold block text-center mb-4 leading-none font-serif"
           >
             &#8220;
           </motion.span>
