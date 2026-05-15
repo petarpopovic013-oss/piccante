@@ -36,13 +36,13 @@ const lineGrow = {
 
 const sections = [
   {
-    text: "Piccante je savremeni restoran u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila.",
+    text: "Piccante je savremeni restoran u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje. ",
     image: "/images/o nama 1.JPG",
     alt: "Ambijent restorana",
     imageRight: true,
   },
   {
-    text: "Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje. Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite.",
+    text: "Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite.",
     image: "/images/o nama 2.JPG",
     alt: "Detalji menija",
     imageRight: false,
@@ -105,10 +105,10 @@ export default function AboutPage() {
       <ParallaxSection
         src="/images/full width gore.JPG"
         alt="Piccante ambijent gore"
-        height="40vh"
+        height="60vh"
         overlay="bg-black/70"
       >
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-[100px]">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-[160px] md:pt-[200px] pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -116,7 +116,7 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="text-center max-w-4xl mx-auto flex flex-col items-center"
           >
-            <motion.h1 variants={fadeUp} className="font-serif text-[40px] md:text-[56px] text-white leading-tight">
+            <motion.h1 variants={fadeUp} className="font-serif text-[36px] md:text-[56px] text-white leading-tight">
               Piccante – mesto gde Novi Sad uživa u poznatim svetskim ukusima
             </motion.h1>
             <motion.div variants={lineGrow} className="w-[60px] h-[2px] bg-[#C22127] mt-8 origin-center"></motion.div>
@@ -179,10 +179,10 @@ export default function AboutPage() {
       <ParallaxSection
         src="/images/full width dole.JPG"
         alt="Piccante ambijent dole"
-        height="40vh"
+        height="50vh"
         overlay="bg-black/60"
       >
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -190,7 +190,7 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="text-center flex flex-col items-center"
           >
-            <motion.h2 variants={fadeUp} className="font-serif text-[40px] md:text-[48px] text-white italic">
+            <motion.h2 variants={fadeUp} className="font-serif text-[36px] md:text-[48px] text-white italic">
               Dobro došli za sto.
             </motion.h2>
             <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-6 origin-center"></motion.div>

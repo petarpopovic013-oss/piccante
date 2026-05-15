@@ -57,7 +57,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col justify-center w-full max-w-[1280px] mx-auto px-10">
+      <div className="relative z-20 h-full flex flex-col justify-center w-full max-w-[1280px] mx-auto px-4 md:px-10">
         <div className="text-left w-full lg:w-[65%]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -67,16 +67,16 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-serif text-6xl md:text-[105px] leading-[1.05] mb-6 tracking-tight text-white">
-                {slides[currentSlide].headingTop} <br />
-                {slides[currentSlide].headingBottom}
+              <h1 className="font-serif text-[38px] sm:text-6xl md:text-[105px] leading-[1.1] md:leading-[1.05] mb-4 md:mb-6 tracking-tight text-white">
+                <span className="block">{slides[currentSlide].headingTop}</span>
+                <span className="block">{slides[currentSlide].headingBottom}</span>
               </h1>
 
-              <p className="text-[16px] md:text-[19px] text-white/90 max-w-2xl leading-relaxed font-sans mb-10 tracking-wide font-medium">
+              <p className="text-[14px] md:text-[19px] text-white/90 max-w-2xl leading-relaxed font-sans mb-8 md:mb-10 tracking-wide font-medium">
                 {slides[currentSlide].subtitle}
               </p>
 
-              <div className="flex items-center space-x-6 text-[13px] uppercase tracking-[0.15em] font-sans font-bold">
+              <div className="flex items-center space-x-6 text-[12px] md:text-[13px] uppercase tracking-[0.15em] font-sans font-bold">
                 <a href="/jelovnik" className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
                   Jelovnik
                 </a>
