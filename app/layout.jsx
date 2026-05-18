@@ -16,10 +16,10 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata = {
   title: "Piccante Restaurant",
-  description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+  description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
   openGraph: {
     title: "Piccante Restaurant",
-    description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
     images: [
       {
         url: '/images/linkcover.jpg',
