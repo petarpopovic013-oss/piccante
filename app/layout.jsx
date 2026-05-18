@@ -17,6 +17,25 @@ const cormorant = Cormorant_Garamond({
 export const metadata = {
   title: "Piccante Restaurant",
   description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+  openGraph: {
+    title: "Piccante Restaurant",
+    description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+    images: [
+      {
+        url: '/images/linkcover.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Piccante Restaurant Cover',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Piccante Restaurant",
+    description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+    images: ['/images/linkcover.jpg'],
+  },
 };
 
 export default function RootLayout({ children }) {
