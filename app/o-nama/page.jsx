@@ -37,31 +37,31 @@ const lineGrow = {
 const sections = [
   {
     text: "Piccante je restoran prepoznatljivog duha u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje.",
-    image: "/images/o nama 1.JPG",
+    image: "/images/o nama 1.webp",
     alt: "Ambijent restorana",
     imageRight: true,
   },
   {
     text: "Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite.",
-    image: "/images/o nama 2.JPG",
+    image: "/images/o nama 2.webp",
     alt: "Detalji menija",
     imageRight: false,
   },
   {
     text: "Ono što Piccante čini posebnim nije samo izbor jela, već način na koji se ona pripremaju i poslužuju – sa merom, ukusom i željom da gost za stolom zaista uživa. Svaki tanjir ima svoj karakter, bilo da dolazite na lagani obrok, poslovni ručak, večeru sa prijateljima, porodično okupljanje, koktel ili rezervaciju za posebno veče.",
-    image: "/images/o nama 3.JPG",
+    image: "/images/o nama 3.webp",
     alt: "Kulinarski specijaliteti",
     imageRight: true,
   },
   {
     text: "Verujemo da restoran nije samo mesto gde se jede. To je prostor za razgovor, susret, predah, proslavu i one trenutke koji se spontano produže jer su hrana, društvo i atmosfera na pravom mestu. Zato smo Piccante oblikovali kao restoran u kome se gost oseća prijatno, a svaki detalj – od ukusa i tanjira do ambijenta – ima svoju ulogu.",
-    image: "/images/o nama 4.JPG",
+    image: "/images/o nama 4.webp",
     alt: "Atmosfera restorana",
     imageRight: false,
   },
   {
     text: "Na meniju se susreću poznati ukusi, savremeni detalji i inspiracija iz različitih kuhinja sveta. Piccante je mesto gde ručak može da postane predah, večera mali ritual, a običan izlazak iskustvo koje se pamti.",
-    image: "/images/o nama 5.JPG",
+    image: "/images/o nama 5.webp",
     alt: "Gastro doživljaj",
     imageRight: true,
   }
@@ -103,7 +103,7 @@ export default function AboutPage() {
 
       {/* Title Section with Parallax */}
       <ParallaxSection
-        src="/images/full width gore.JPG"
+        src="/images/full width gore.webp"
         alt="Piccante ambijent gore"
         height="60vh"
         overlay="bg-black/70"
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
       {/* Final Centered Row with Parallax */}
       <ParallaxSection
-        src="/images/full width dole.JPG"
+        src="/images/full width dole.webp"
         alt="Piccante ambijent dole"
         height="50vh"
         overlay="bg-black/60"

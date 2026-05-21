@@ -22,7 +22,7 @@ export const metadata = {
     description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
     images: [
       {
-        url: '/images/linkcover.jpg',
+        url: '/images/linkcover.webp',
         width: 1200,
         height: 630,
         alt: 'Piccante Restaurant Cover',
@@ -34,7 +34,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Piccante Restaurant",
     description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
-    images: ['/images/linkcover.jpg'],
+    images: ['/images/linkcover.webp'],
   },
 };
 

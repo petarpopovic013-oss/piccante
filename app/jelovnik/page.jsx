@@ -70,7 +70,7 @@ export default function Jelovnik() {
       >
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[140%] -top-[20%] z-0">
           <Image
-            src="/images/jelovnikimage.JPG"
+            src="/images/jelovnikimage.webp"
             alt="Jelovnik Hero Background"
             fill
             className="object-cover object-center"
@@ -140,7 +140,7 @@ export default function Jelovnik() {
             <div className="text-center mb-20 relative flex flex-col items-center">
               <span className="mb-4">
                 <Image
-                  src="/images/paprika ikonica.png"
+                  src="/images/paprika ikonica.webp"
                   alt="Piccante ikonica"
                   width={47}
                   height={47}

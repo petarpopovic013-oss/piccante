@@ -41,7 +41,7 @@ export default function Home() {
       >
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[140%] -top-[20%]">
           <Image
-            src="/images/undermenu picture.JPG"
+            src="/images/undermenu picture.webp"
             alt="Restaurant dining"
             fill
             className="object-cover object-center block"

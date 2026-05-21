@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Background Image & Overlay Container */}
           <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] ease-in-out will-change-[opacity]">
             <Image
-              src="/images/visitus hover.JPG"
+              src="/images/visitus hover.webp"
               alt="Visit Us Background"
               fill
               className="object-cover object-center transition-transform duration-[800ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] scale-100 group-hover:scale-[1.08]"
@@ -81,7 +81,7 @@ export default function Footer() {
           {/* Background Image & Overlay Container */}
           <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] ease-in-out will-change-[opacity]">
             <Image
-              src="/images/reservation hover.JPG"
+              src="/images/reservation hover.webp"
               alt="Reservation Background"
               fill
               className="object-cover object-center transition-transform duration-[800ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] scale-100 group-hover:scale-[1.08]"
@@ -132,7 +132,7 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
             <Link href="/" className="inline-block group">
               <Image
-                src="/images/picante logo.png"
+                src="/images/picante logo.webp"
                 alt="Piccante Restaurant Logo"
                 width={168}
                 height={56}

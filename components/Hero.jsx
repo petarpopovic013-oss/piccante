@@ -6,14 +6,14 @@ import Image from 'next/image';
 
 const slides = [
   {
-    image: '/images/hero1.JPG',
-    headingTop: <span className="italic font-normal">Mesto uživanja</span>,
+    image: '/images/hero1.webp',
+    headingTop: <span className="text-white">Mesto uživanja</span>,
     headingBottom: <><span className="text-[#C22127] font-bold">u srcu</span> <span className="text-white">Novog Sada</span></>,
     subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
   },
   {
-    image: '/images/hero2.JPG',
-    headingTop: <span className="italic font-normal">Ukusi koji</span>,
+    image: '/images/hero2.webp',
+    headingTop: <span className="text-white">Ukusi koji</span>,
     headingBottom: <><span className="text-[#C22127] font-bold">imaju</span> <span className="text-white">karakter</span></>,
     subtitle: "Dobrodošli u mesto gde svaki obrok ima svoj ritam, od doručka i poslovnog ručka do večere sa  dragim ljudima. Poznati ukusi, pažljivo odabrani sastojci i prijatna atmosfera čine Piccante restoranom u koji se rado dolazi i često vraća."
   }

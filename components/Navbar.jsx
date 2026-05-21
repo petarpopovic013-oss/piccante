@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="justify-self-start z-50">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/picante logo.png"
+              src="/images/picante logo.webp"
               alt="Piccante Restaurant Logo"
               width={200}
               height={70}

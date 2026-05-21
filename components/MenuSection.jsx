@@ -114,7 +114,7 @@ export default function MenuSection() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.2fr] gap-10 md:gap-6 items-start">
           <motion.div variants={imageReveal} className="hidden md:block w-full aspect-square md:mt-[60px] relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/starters1.JPG"
+              src="/images/starters1.webp"
               alt="recommendation"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
@@ -124,7 +124,7 @@ export default function MenuSection() {
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/starters2.JPG"
+              src="/images/starters2.webp"
               alt="recommendation 2"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
@@ -169,7 +169,7 @@ export default function MenuSection() {
 
           <motion.div variants={imageReveal} className="hidden md:block w-full aspect-square md:mt-[60px] order-1 md:order-2 relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/bevrages.JPG"
+              src="/images/bevrages.webp"
               alt="Cocktail"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
@@ -179,7 +179,7 @@ export default function MenuSection() {
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] order-1 md:order-3 relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/bevreges2.JPG"
+              src="/images/bevreges2.webp"
               alt="Cocktail 2"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
@@ -201,7 +201,7 @@ export default function MenuSection() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.2fr] gap-10 md:gap-6 items-start">
           <motion.div variants={imageReveal} className="hidden md:block w-full aspect-square md:mt-[60px] relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/maincourses.JPG"
+              src="/images/maincourses.webp"
               alt="Steak"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
@@ -211,7 +211,7 @@ export default function MenuSection() {
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] relative overflow-hidden group cursor-pointer">
             <Image
-              src="/images/maincourses2.JPG"
+              src="/images/maincourses2.webp"
               alt="Fish"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
