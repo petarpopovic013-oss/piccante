@@ -33,7 +33,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Piccante Restaurant",
-    description: "Welcome to Piccante Restaurant - Where Luxury meets Culinary Excellence",
+    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
     images: ['/images/linkcover.jpg'],
   },
 };

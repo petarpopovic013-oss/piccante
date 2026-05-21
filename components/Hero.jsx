@@ -7,7 +7,7 @@ import Image from 'next/image';
 const slides = [
   {
     image: '/images/hero1.JPG',
-    headingTop: <span className="italic font-normal">Savremena kuhinja</span>,
+    headingTop: <span className="italic font-normal">Mesto uživanja</span>,
     headingBottom: <><span className="text-[#C22127] font-bold">u srcu</span> <span className="text-white">Novog Sada</span></>,
     subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
   },

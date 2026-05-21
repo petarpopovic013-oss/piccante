@@ -36,7 +36,7 @@ const lineGrow = {
 
 const sections = [
   {
-    text: "Piccante je savremeni restoran u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje. ",
+    text: "Piccante je restoran prepoznatljivog duha u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje.",
     image: "/images/o nama 1.JPG",
     alt: "Ambijent restorana",
     imageRight: true,

@@ -107,7 +107,7 @@ export default function Footer() {
               className="text-white font-serif text-[48px] font-normal tracking-[0.08em] uppercase mb-5 leading-none"
             >Rezervacije</motion.h2>
             <p className="text-white text-[14px] leading-[1.8] mb-6 max-w-[320px] mx-auto">
-              Planirate nezaboravnu romantičnu večeru ili ekskluzivnu proslavu sa najdražima? Osigurajte svoje mesto na vreme pozivom na naš broj.
+              Planirate nezaboravnu romantičnu večeru ili poseban trenutak sa najdražima? Osigurajte svoje mesto na vreme pozivom na naš broj.
             </p>
             <p className="text-white font-bold text-[13px] tracking-[0.15em] uppercase mb-2">Kontakt za Rezervacije</p>
             <p className="text-white text-[13px] leading-[1.8]">
