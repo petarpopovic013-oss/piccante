@@ -254,20 +254,37 @@ export default function MenuSection() {
 }
 
 function MenuItem({ name, price, desc }) {
+
   return (
+
     <motion.div
+
       initial={{ opacity: 0, x: -20 }}
+
       whileInView={{ opacity: 1, x: 0 }}
+
       viewport={{ once: true, margin: "-50px" }}
+
       transition={{ duration: 0.5, ease: "easeOut" }}
+
       className="py-[20px] border-b border-[rgba(255,255,255,0.08)] font-sans group hover:bg-white/[0.02] transition-colors duration-300 px-4 -mx-4 rounded-md cursor-default"
+
     >
-      <div className="flex items-center gap-3 mb-1">
-        <h4 className="text-white font-serif text-[22px] font-normal whitespace-nowrap group-hover:text-[#C22127] transition-colors duration-300">{name}</h4>
-        <div className="flex-1 border-b border-dashed border-[rgba(255,255,255,0.2)] group-hover:border-[#C22127]/50 transition-colors duration-300"></div>
-        <span className="text-white group-hover:text-[#C22127] transition-colors duration-300 font-serif text-[22px] font-normal whitespace-nowrap">{price}</span>
+
+      <div className="flex items-end gap-2 md:gap-3 mb-1">
+
+        <h4 className="text-white font-serif text-[18px] md:text-[22px] font-normal group-hover:text-[#C22127] transition-colors duration-300 leading-tight">{name}</h4>
+
+        <div className="flex-1 border-b-[2px] border-dotted border-[rgba(255,255,255,0.2)] group-hover:border-[#C22127]/50 transition-colors duration-300 mb-1 md:mb-[6px] min-w-[20px]"></div>
+
+        <span className="text-white group-hover:text-[#C22127] transition-colors duration-300 font-serif text-[18px] md:text-[22px] font-normal whitespace-nowrap shrink-0">{price}</span>
+
       </div>
+
       <p className="text-white/60 text-[15px] mt-2">{desc}</p>
+
     </motion.div>
+
   );
+
 }
