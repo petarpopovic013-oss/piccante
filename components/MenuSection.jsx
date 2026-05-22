@@ -156,14 +156,14 @@ export default function MenuSection() {
       >
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr] gap-10 md:gap-6 items-start">
           <motion.div variants={slideInLeft} className="flex flex-col justify-start pr-0 md:pr-8 order-2 md:order-1">
-            <motion.h3 variants={titleReveal} className="text-[#C22127] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Pića & Kokteli</motion.h3>
+            <motion.h3 variants={titleReveal} className="text-[#C22127] uppercase tracking-[0.05em] text-[21px] font-extrabold font-sans">Nova koktel karta</motion.h3>
             <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-3 mb-8 origin-left"></motion.div>
 
             <div className="flex flex-col">
-              <MenuItem name="Piccante Signature Koktel" price="1260,00 RSD" desc="Premium džin, liker od zove, svež krastavac, nana i limeta." />
-              <MenuItem name="Klasični Martini" price="980,00 RSD" desc="Zanatska votka ili džin, suvi vermut, uz maslinu ili tvist od limuna." />
-              <MenuItem name="Dimljeni Old Fashioned" price="1160,00 RSD" desc="Odabrani burbon, angostura, kora narandže i prefinjena infuzija hikori dima." />
-              <MenuItem name="Ponoćna Margarita" price="1090,00 RSD" desc="Vrhunska tekila, pire od svežih kupina, limeta i prirodni agava sirup." />
+              <MenuItem name="Pornstar Martini" price="         " desc="Vanilla vodka, pire od passion fruita, sok od limete, passion fruit liker i prosecco." />
+              <MenuItem name="Hustler" price="         " desc="Havana 3yr, Havana 7yr, pire od passion fruita i sok od limete." />
+              <MenuItem name="Zanzamora" price="         " desc="Jim Beam, Olmeca Silver, sok od limuna, pire od kupine, Angostura bitter i soda." />
+              <MenuItem name="Mango Daiquiri" price="         " desc="Havana 3yr, Triple Sec, sok od limete i pire od manga." />
             </div>
           </motion.div>
 
@@ -275,7 +275,7 @@ function MenuItem({ name, price, desc }) {
 
         <h4 className="text-white font-serif text-[18px] md:text-[22px] font-normal group-hover:text-[#C22127] transition-colors duration-300 leading-tight">{name}</h4>
 
-        <div className="flex-1 border-b-[2px] border-dotted border-[rgba(255,255,255,0.2)] group-hover:border-[#C22127]/50 transition-colors duration-300 mb-1 md:mb-[6px] min-w-[20px]"></div>
+        <div className="flex-1 min-w-[20px]"></div>
 
         <span className="text-white group-hover:text-[#C22127] transition-colors duration-300 font-serif text-[18px] md:text-[22px] font-normal whitespace-nowrap shrink-0">{price}</span>
 

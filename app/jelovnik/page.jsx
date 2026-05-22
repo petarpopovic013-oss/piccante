@@ -113,8 +113,8 @@ export default function Jelovnik() {
                 key={category.name}
                 onClick={() => scrollToCategory(category.name)}
                 className={`font-sans text-[10px] sm:text-[11px] md:text-[13px] uppercase tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] font-bold transition-all duration-300 px-2.5 py-1.5 md:px-4 md:py-2 border rounded-[2px] ${activeCategory === category.name
-                    ? 'border-[#C22127] bg-[#C22127]/10 text-[#C22127]'
-                    : 'border-white/10 text-white/70 hover:border-white/30 hover:text-white hover:bg-white/5'
+                  ? 'border-[#C22127] bg-[#C22127]/10 text-[#C22127]'
+                  : 'border-white/10 text-white/70 hover:border-white/30 hover:text-white hover:bg-white/5'
                   }`}
               >
                 {category.name}

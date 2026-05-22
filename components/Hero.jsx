@@ -30,7 +30,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section className="relative w-full min-h-[600px] h-screen md:min-h-[700px] overflow-hidden bg-black">
       {/* Background Image Slider */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -57,7 +57,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col justify-center w-full max-w-[1280px] mx-auto px-4 md:px-10">
+      <div className="relative z-20 h-full flex flex-col justify-center pt-[100px] lg:pt-[150px] pb-10 w-full max-w-[1280px] mx-auto px-4 md:px-10">
         <div className="text-left w-full lg:w-[65%]">
           <AnimatePresence mode="wait">
             <motion.div

@@ -12,9 +12,9 @@ export default function ContactPage() {
 
       <section className="flex-1 pt-[180px] pb-[80px] px-6 lg:px-10 max-w-[1280px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
+
           {/* Left Side: Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -70,7 +70,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Right Side: Map */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -80,9 +80,9 @@ export default function ContactPage() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2809.5244583162!2d19.816666676!3d45.242777779099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b106969696969%3A0x6969696969696969!2sBulevar%20patrijarha%20Pavla%2022%2C%20Novi%20Sad%2C%20Srbija!5e0!3m2!1sen!2srs!4v1715793000000!5m2!1sen!2srs"
               width="100%"
               height="100%"
-              style={{ 
-                border: 0, 
-                filter: 'grayscale(1) invert(0.92) contrast(0.8) brightness(1.2)' 
+              style={{
+                border: 0,
+                filter: 'grayscale(1) invert(0.92) contrast(0.8) brightness(1.2)'
               }}
               allowFullScreen=""
               loading="lazy"
