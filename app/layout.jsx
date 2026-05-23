@@ -15,11 +15,13 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: "Piccante Restaurant",
-  description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
+  title: "Piccante Restaurant | Ekskluzivni Restoran",
+  description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom. Uživajte u autentičnim ukusima i prelepom ambijentu.",
+  keywords: ["restoran", "Piccante", "hrana", "večera", "ručak", "luksuzni restoran", "najbolji restoran", "Srbija", "gastronomija"],
   openGraph: {
     title: "Piccante Restaurant",
-    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
+    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom.",
+    locale: "sr_RS",
     images: [
       {
         url: '/images/linkcover.webp',
@@ -33,14 +35,25 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Piccante Restaurant",
-    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom",
+    description: "Dobro došli u Piccante Restoran - gde se luksuz spaja sa vrhunskom kuhinjom.",
     images: ['/images/linkcover.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="sr" className="dark">
       <body
         className={`${sen.variable} ${cormorant.variable} antialiased bg-[#0a0a0a] text-[#ededed] font-sans`}
       >

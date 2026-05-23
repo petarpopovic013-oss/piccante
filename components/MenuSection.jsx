@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
 const fadeUp = {
@@ -47,6 +48,8 @@ const titleReveal = {
 };
 
 export default function MenuSection() {
+  const [activeImage, setActiveImage] = useState("/images/bevrages.webp");
+
   return (
     <div className="w-full bg-[#0a0a0a] text-white pt-[100px] pb-[60px]">
 
@@ -160,22 +163,57 @@ export default function MenuSection() {
             <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-3 mb-8 origin-left"></motion.div>
 
             <div className="flex flex-col">
-              <MenuItem name="Pornstar Martini" price="         " desc="Vanilla vodka, pire od passion fruita, sok od limete, passion fruit liker i prosecco." />
-              <MenuItem name="Hustler" price="         " desc="Havana 3yr, Havana 7yr, pire od passion fruita i sok od limete." />
-              <MenuItem name="Zanzamora" price="         " desc="Jim Beam, Olmeca Silver, sok od limuna, pire od kupine, Angostura bitter i soda." />
-              <MenuItem name="Mango Daiquiri" price="         " desc="Havana 3yr, Triple Sec, sok od limete i pire od manga." />
+              <MenuItem
+                name="Pornstar Martini"
+                price="         "
+                desc="Vanilla vodka, pire od passion fruita, sok od limete, passion fruit liker i prosecco."
+                onMouseEnter={() => setActiveImage("/images/Pornstar martini.webp")}
+                onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
+              />
+              <MenuItem
+                name="Hustler"
+                price="         "
+                desc="Havana 3yr, Havana 7yr, pire od passion fruita i sok od limete."
+                onMouseEnter={() => setActiveImage("/images/Hustler.webp")}
+                onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
+              />
+              <MenuItem
+                name="Zarzamora"
+                price="         "
+                desc="Jim Beam, Olmeca Silver, sok od limuna, pire od kupine, Angostura bitter i soda."
+                onMouseEnter={() => setActiveImage("/images/Zarzamora.webp")}
+                onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
+              />
+              <MenuItem
+                name="Mango Daiquiri"
+                price="         "
+                desc="Havana 3yr, Triple Sec, sok od limete i pire od manga."
+                onMouseEnter={() => setActiveImage("/images/Mango daiquiri.webp")}
+                onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
+              />
             </div>
           </motion.div>
 
           <motion.div variants={imageReveal} className="hidden md:block w-full aspect-square md:mt-[60px] order-1 md:order-2 relative overflow-hidden group cursor-pointer">
-            <Image
-              src="/images/bevrages.webp"
-              alt="Cocktail"
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={90}
-            />
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={activeImage}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.65, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full"
+              >
+                <Image
+                  src={activeImage}
+                  alt="Cocktail"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-in-out"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={90}
+                />
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
           <motion.div variants={imageReveal} className="w-full aspect-[4/5] md:aspect-[3/4] order-1 md:order-3 relative overflow-hidden group cursor-pointer">
             <Image
@@ -253,7 +291,7 @@ export default function MenuSection() {
   );
 }
 
-function MenuItem({ name, price, desc }) {
+function MenuItem({ name, price, desc, onMouseEnter, onMouseLeave }) {
 
   return (
 
@@ -266,6 +304,10 @@ function MenuItem({ name, price, desc }) {
       viewport={{ once: true, margin: "-50px" }}
 
       transition={{ duration: 0.5, ease: "easeOut" }}
+
+      onMouseEnter={onMouseEnter}
+
+      onMouseLeave={onMouseLeave}
 
       className="py-[20px] border-b border-[rgba(255,255,255,0.08)] font-sans group hover:bg-white/[0.02] transition-colors duration-300 px-4 -mx-4 rounded-md cursor-default"
 
