@@ -2,13 +2,13 @@ import { Sen, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 
 const sen = Sen({
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
   weight: ['400', '500', '600', '700', '800'],
   variable: '--font-sans',
 });
 
 const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
   weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-serif',
@@ -53,7 +53,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="sr" className="dark">
+    <html lang="sr" className="dark" translate="no">
       <body
         className={`${sen.variable} ${cormorant.variable} antialiased bg-[#0a0a0a] text-[#ededed] font-sans`}
       >
