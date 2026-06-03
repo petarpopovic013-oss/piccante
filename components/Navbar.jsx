@@ -16,6 +16,7 @@ export default function Navbar() {
     { label: "O NAMA", href: "/o-nama" },
     { label: "JELOVNIK", href: "/jelovnik" },
     { label: "KARTA PIĆA", href: "/karta-pica" },
+    { label: "BLOG", href: "/blog" },
     { label: "KONTAKT", href: "/kontakt" },
   ];
 
