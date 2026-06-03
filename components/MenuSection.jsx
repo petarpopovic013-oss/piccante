@@ -165,28 +165,28 @@ export default function MenuSection() {
             <div className="flex flex-col">
               <MenuItem
                 name="Pornstar Martini"
-                price="         "
+                price="680,00 RSD"
                 desc="Vanilla vodka, pire od passion fruita, sok od limete, passion fruit liker i prosecco."
                 onMouseEnter={() => setActiveImage("/images/Pornstar martini.webp")}
                 onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
               />
               <MenuItem
                 name="Hustler"
-                price="         "
+                price="590,00 RSD"
                 desc="Havana 3yr, Havana 7yr, pire od passion fruita i sok od limete."
                 onMouseEnter={() => setActiveImage("/images/Hustler.webp")}
                 onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
               />
               <MenuItem
                 name="Zarzamora"
-                price="         "
+                price="620,00 RSD"
                 desc="Jim Beam, Olmeca Silver, sok od limuna, pire od kupine, Angostura bitter i soda."
                 onMouseEnter={() => setActiveImage("/images/Zarzamora.webp")}
                 onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
               />
               <MenuItem
                 name="Mango Daiquiri"
-                price="         "
+                price="590,00 RSD"
                 desc="Havana 3yr, Triple Sec, sok od limete i pire od manga."
                 onMouseEnter={() => setActiveImage("/images/Mango daiquiri.webp")}
                 onMouseLeave={() => setActiveImage("/images/bevrages.webp")}
