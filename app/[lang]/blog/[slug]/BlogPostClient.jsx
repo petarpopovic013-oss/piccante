@@ -6,17 +6,24 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function BlogPostClient({ post }) {
+export default function BlogPostClient({ post, lang, dict }) {
+  const t = (key) => dict?.[key] || key;
+
+  const getLocalizedHref = (path) => {
+    if (lang === 'sr') return path;
+    return `/${lang}${path === '/' ? '' : path}`;
+  };
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] overflow-x-hidden flex flex-col">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       <article className="flex-grow">
         {/* Hero Section */}
         <div className="relative w-full h-[400px] md:h-[500px]">
           <Image
             src={post.image}
-            alt={post.title}
+            alt={t(post.title)}
             fill
             className="object-cover"
             priority
@@ -31,7 +38,7 @@ export default function BlogPostClient({ post }) {
               className="max-w-4xl text-center"
             >
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
-                {post.title}
+                {t(post.title)}
               </h1>
             </motion.div>
           </div>
@@ -40,13 +47,13 @@ export default function BlogPostClient({ post }) {
         {/* Content Section */}
         <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
           <Link 
-            href="/blog" 
+            href={getLocalizedHref("/blog")} 
             className="inline-flex items-center text-[#ededed]/70 hover:text-[#C22127] transition-colors mb-12"
           >
             <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Nazad na sve tekstove
+            {t("Nazad na sve tekstove")}
           </Link>
 
           <motion.div
@@ -62,14 +69,14 @@ export default function BlogPostClient({ post }) {
               if (isSubtitle) {
                 return (
                   <h2 key={index} className="text-2xl font-bold font-serif text-white mt-12 mb-6">
-                    {paragraph}
+                    {t(paragraph)}
                   </h2>
                 );
               }
               
               return (
                 <p key={index} className="mb-6 leading-relaxed text-lg text-[#ededed]/90">
-                  {paragraph}
+                  {t(paragraph)}
                 </p>
               );
             })}
@@ -77,7 +84,7 @@ export default function BlogPostClient({ post }) {
         </div>
       </article>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }

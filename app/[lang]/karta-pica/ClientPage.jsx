@@ -1,13 +1,19 @@
 "use client";
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, use } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { drinksData } from './drinksData';
+import { getDictionary } from '@/dictionaries/getDictionary';
 
-export default function KartaPica() {
+export default function KartaPica(props) {
+  const params = props.params || {};
+  const lang = params.lang || 'sr';
+  const dict = getDictionary(lang);
+  const t = (key) => dict?.[key] || key;
+
   const bannerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -61,7 +67,7 @@ export default function KartaPica() {
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] overflow-x-hidden text-[#ededed]">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       {/* Small Hero with Parallax */}
       <motion.section
@@ -87,7 +93,7 @@ export default function KartaPica() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <h1 className="font-serif text-[42px] sm:text-6xl md:text-[85px] text-white leading-[1.1] mb-4">
-              Naša <span className="text-[#C22127] italic font-normal">Karta pića</span>
+              {lang === 'en' ? 'Our' : lang === 'ru' ? 'Наш' : 'Naša'} <span className="text-[#C22127] italic font-normal">{lang === 'en' ? 'Drinks Menu' : lang === 'ru' ? 'Меню напитков' : 'Karta pića'}</span>
             </h1>
           </motion.div>
           <motion.div
@@ -97,7 +103,7 @@ export default function KartaPica() {
             className="w-full max-w-[800px] mx-auto"
           >
             <p className="font-sans text-[15px] md:text-[19px] text-white/90 leading-relaxed tracking-wide font-medium">
-              Istražite našu bogatu ponudu toplih i hladnih napitaka, osvežavajućih sokova, vrhunskih piva i pažljivo odabranih domaćih i stranih alkoholnih pića.
+              {t("Istražite našu bogatu ponudu toplih i hladnih napitaka, osvežavajućih sokova, vrhunskih piva i pažljivo odabranih domaćih i stranih alkoholnih pića.")}
             </p>
           </motion.div>
         </div>
@@ -117,7 +123,7 @@ export default function KartaPica() {
                   : 'border-white/10 text-white/70 hover:border-white/30 hover:text-white hover:bg-white/5'
                   }`}
               >
-                {category.name}
+                {t(category.name)}
               </button>
             ))}
           </div>
@@ -148,62 +154,83 @@ export default function KartaPica() {
                 />
               </span>
               <h2 className="font-serif text-[44px] md:text-[64px] text-white tracking-[0.05em] leading-tight mb-2 uppercase drop-shadow-md">
-                {category.name}
+                {t(category.name)}
               </h2>
               <div className="w-16 h-[2px] bg-[#C22127] mt-3 mb-3"></div>
               {category.note && (
                 <p className="font-sans text-white/60 text-[14px] italic uppercase tracking-[0.15em] mt-2">
-                  {category.note}
+                  {t(category.note)}
                 </p>
               )}
             </div>
 
             {/* Category Items */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
-              {category.items.map((item, itemIndex) => (
-                <motion.div
-                  key={item.name + itemIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: (itemIndex % 4) * 0.1 }}
-                  className="flex flex-col group"
-                >
-                  <div className="relative w-full mb-2 overflow-hidden">
-                    {/* Absolute dotted line running behind everything at the baseline */}
-                    <div className="absolute bottom-[3px] md:bottom-[5px] left-0 right-0 border-b-[2px] border-dotted border-white/20 z-0"></div>
+              {category.items.map((item, itemIndex) => {
+                const combinedKey = item.description ? `${item.name}\u2028${item.description}` : item.name;
+                const translatedCombined = dict[combinedKey];
+                
+                let translatedName = item.name;
+                let translatedDesc = item.description;
 
-                    <div className="relative z-10 flex items-end justify-between w-full gap-x-2">
-                      <h3 className="font-sans font-bold text-[14px] md:text-[18px] text-white tracking-wide uppercase shrink min-w-0">
-                        <span className="bg-[#0a0a0a] pr-2 inline">
-                          {item.name}
-                          {item.isNew && (
-                            <span className="text-[9px] md:text-[10px] bg-[#C22127] text-white px-1.5 py-[1px] md:px-2 md:py-[2px] rounded-sm tracking-[0.1em] md:tracking-[0.15em] ml-2 shrink-0 inline-block align-middle relative top-[-1px]">
-                              NOVO
-                            </span>
+                if (translatedCombined) {
+                  if (item.description) {
+                    const parts = translatedCombined.split("\u2028");
+                    translatedName = parts[0];
+                    translatedDesc = parts.length > 1 ? parts[1] : "";
+                  } else {
+                    translatedName = translatedCombined;
+                  }
+                } else if (item.name) {
+                  // Fallback to checking just the name if combined key is missing
+                  translatedName = dict[item.name] || item.name;
+                }
+
+                return (
+                  <motion.div
+                    key={item.name + itemIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: (itemIndex % 4) * 0.1 }}
+                    className="flex flex-col group"
+                  >
+                    <div className="relative w-full mb-2 overflow-hidden">
+                      {/* Absolute dotted line running behind everything at the baseline */}
+                      <div className="absolute bottom-[3px] md:bottom-[5px] left-0 right-0 border-b-[2px] border-dotted border-white/20 z-0"></div>
+
+                      <div className="relative z-10 flex items-end justify-between w-full gap-x-2">
+                        <h3 className="font-sans font-bold text-[14px] md:text-[18px] text-white tracking-wide uppercase shrink min-w-0">
+                          <span className="bg-[#0a0a0a] pr-2 inline">
+                            {translatedName}
+                            {item.isNew && (
+                              <span className="text-[9px] md:text-[10px] bg-[#C22127] text-white px-1.5 py-[1px] md:px-2 md:py-[2px] rounded-sm tracking-[0.1em] md:tracking-[0.15em] ml-2 shrink-0 inline-block align-middle relative top-[-1px]">
+                                {lang === 'en' ? 'NEW' : lang === 'ru' ? 'НОВОЕ' : 'NOVO'}
+                              </span>
+                            )}
+                          </span>
+                        </h3>
+                        <div className="font-serif text-[16px] md:text-[22px] text-[#C22127] font-bold text-right shrink-0 bg-[#0a0a0a] pl-2 self-end">
+                          {item.price.includes('/') ? (
+                            <div className="flex flex-col items-end gap-1 leading-[1.2] bg-[#0a0a0a]">
+                              {item.price.split('/').map((p, i) => (
+                                <span key={i} className="whitespace-nowrap bg-[#0a0a0a]">{p.trim()}</span>
+                              ))}
+                            </div>
+                          ) : (
+                            <span className="whitespace-nowrap bg-[#0a0a0a]">{item.price}</span>
                           )}
-                        </span>
-                      </h3>
-                      <div className="font-serif text-[16px] md:text-[22px] text-[#C22127] font-bold text-right shrink-0 bg-[#0a0a0a] pl-2 self-end">
-                        {item.price.includes('/') ? (
-                          <div className="flex flex-col items-end gap-1 leading-[1.2] bg-[#0a0a0a]">
-                            {item.price.split('/').map((p, i) => (
-                              <span key={i} className="whitespace-nowrap bg-[#0a0a0a]">{p.trim()}</span>
-                            ))}
-                          </div>
-                        ) : (
-                          <span className="whitespace-nowrap bg-[#0a0a0a]">{item.price}</span>
-                        )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {item.description && (
-                    <p className="font-sans text-[14px] text-[#ededed]/60 leading-[1.6] lg:pr-10 transition-colors duration-300 group-hover:text-[#ededed]/90 font-medium">
-                      {item.description}
-                    </p>
-                  )}
-                </motion.div>
-              ))}
+                    {translatedDesc && (
+                      <p className="font-sans text-[14px] text-[#ededed]/60 leading-[1.6] lg:pr-10 transition-colors duration-300 group-hover:text-[#ededed]/90 font-medium">
+                        {translatedDesc}
+                      </p>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
 
           </motion.div>
@@ -229,12 +256,14 @@ export default function KartaPica() {
             &#8220;
           </motion.span>
           <p className="font-serif text-[24px] md:text-[32px] font-normal text-white leading-[1.5] text-center italic">
-            "Dobro piće je ključ koji otvara vrata prijatnih razgovora i nezaboravnih trenutaka."
+            "{t("Dobro piće je ključ koji otvara vrata prijatnih razgovora i nezaboravnih trenutaka.")}"
           </p>
         </div>
       </motion.section>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }
+
+

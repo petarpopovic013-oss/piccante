@@ -1,14 +1,18 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, use } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import MenuSection from '@/components/MenuSection';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
+import { getDictionary } from '@/dictionaries/getDictionary';
 
-export default function Home() {
+export default function Home(props) {
+  const params = props.params || {};
+  const lang = params.lang || 'sr';
+  const dict = getDictionary(lang);
   const bannerRef = useRef(null);
 
   // Parallax effect for the banner
@@ -22,13 +26,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       {/* Hero section handles its own animations */}
-      <Hero />
+      <Hero lang={lang} dict={dict} />
 
       {/* Menu section handles its own stagger animations */}
-      <MenuSection />
+      <MenuSection lang={lang} dict={dict} />
 
       {/* Full Width Parallax Banner */}
       <motion.section
@@ -82,7 +86,7 @@ export default function Home() {
             &#8220;
           </motion.span>
           <p className="font-serif text-[24px] md:text-[32px] font-normal text-white leading-[1.5] text-center italic">
-            "Piccante nije samo mesto za večeru; to je autentična kulinarska oaza u kojoj svaki zalogaj predstavlja apsolutno savršenstvo ukusa."
+            "{dict["Piccante nije samo mesto za večeru; to je autentična kulinarska oaza u kojoj svaki zalogaj predstavlja apsolutno savršenstvo ukusa."] || "Piccante nije samo mesto za večeru; to je autentična kulinarska oaza u kojoj svaki zalogaj predstavlja apsolutno savršenstvo ukusa."}"
           </p>
 
         </div>
@@ -98,7 +102,9 @@ export default function Home() {
 
       </motion.section>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }
+
+

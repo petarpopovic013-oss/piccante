@@ -1,5 +1,5 @@
 import { Sen, Cormorant_Garamond } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 
 const sen = Sen({
   subsets: ['latin', 'latin-ext'],
@@ -51,9 +51,10 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children, params }) {
+  const { lang } = await params;
   return (
-    <html lang="sr" className="dark" translate="no">
+    <html lang={lang} className="dark" translate="no">
       <body
         className={`${sen.variable} ${cormorant.variable} antialiased bg-[#0a0a0a] text-[#ededed] font-sans`}
       >

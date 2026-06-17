@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, use } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import { getDictionary } from '@/dictionaries/getDictionary';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -33,39 +34,6 @@ const lineGrow = {
   hidden: { scaleX: 0 },
   visible: { scaleX: 1, transition: { duration: 0.8, ease: "easeInOut", delay: 0.3 } }
 };
-
-const sections = [
-  {
-    text: "Piccante je restoran prepoznatljivog duha u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje.",
-    image: "/images/o nama 1.webp",
-    alt: "Ambijent restorana",
-    imageRight: true,
-  },
-  {
-    text: "Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite.",
-    image: "/images/o nama 2.webp",
-    alt: "Detalji menija",
-    imageRight: false,
-  },
-  {
-    text: "Ono što Piccante čini posebnim nije samo izbor jela, već način na koji se ona pripremaju i poslužuju – sa merom, ukusom i željom da gost za stolom zaista uživa. Svaki tanjir ima svoj karakter, bilo da dolazite na lagani obrok, poslovni ručak, večeru sa prijateljima, porodično okupljanje, koktel ili rezervaciju za posebno veče.",
-    image: "/images/o nama 3.webp",
-    alt: "Kulinarski specijaliteti",
-    imageRight: true,
-  },
-  {
-    text: "Verujemo da restoran nije samo mesto gde se jede. To je prostor za razgovor, susret, predah, proslavu i one trenutke koji se spontano produže jer su hrana, društvo i atmosfera na pravom mestu. Zato smo Piccante oblikovali kao restoran u kome se gost oseća prijatno, a svaki detalj – od ukusa i tanjira do ambijenta – ima svoju ulogu.",
-    image: "/images/o nama 4.webp",
-    alt: "Atmosfera restorana",
-    imageRight: false,
-  },
-  {
-    text: "Na meniju se susreću poznati ukusi, savremeni detalji i inspiracija iz različitih kuhinja sveta. Piccante je mesto gde ručak može da postane predah, večera mali ritual, a običan izlazak iskustvo koje se pamti.",
-    image: "/images/o nama 5.webp",
-    alt: "Gastro doživljaj",
-    imageRight: true,
-  }
-];
 
 function ParallaxSection({ src, alt, children, height = "500px", overlay = "bg-black/60" }) {
   const ref = useRef(null);
@@ -96,10 +64,48 @@ function ParallaxSection({ src, alt, children, height = "500px", overlay = "bg-b
   );
 }
 
-export default function AboutPage() {
+export default function AboutPage(props) {
+  const params = props.params || {};
+  const lang = params.lang || 'sr';
+  const dict = getDictionary(lang);
+  const t = (key) => dict?.[key] || key;
+
+  const sections = [
+    {
+      text: dict["Piccante je restoran prepoznatljivog duha u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje."] || "Piccante je restoran prepoznatljivog duha u Novom Sadu, nastao sa idejom da svakodnevni odlazak na ručak, večeru, kafu ili piće dobije više pažnje, topline i stila. Naša kuhinja oslanja se na jela koja ljudi vole: sočno meso, bogate sosove, sveže salate, pažljivo spremljena predjela, paste, koktele i tanjire za deljenje.",
+      image: "/images/o nama 1.webp",
+      alt: "Ambijent restorana",
+      imageRight: true,
+    },
+    {
+      text: dict["Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite."] || "Ipak, Piccante ne ostaje samo u okvirima poznatog. Naš jelovnik hrabro istražuje i moderne ukuse Istoka i Zapada, spajajući bliske sastojke, savremene tehnike i globalnu inspiraciju u iskustvo koje je dovoljno prijatno da mu se rado vraćate, a dovoljno posebno da ga zapamtite.",
+      image: "/images/o nama 2.webp",
+      alt: "Detalji menija",
+      imageRight: false,
+    },
+    {
+      text: dict["Ono što Piccante čini posebnim nije samo izbor jela, već način na koji se ona pripremaju i poslužuju – sa merom, ukusom i željom da gost za stolom zaista uživa. Svaki tanjir ima svoj karakter, bilo da dolazite na lagani obrok, poslovni ručak, večeru sa prijateljima, porodično okupljanje, koktel ili rezervaciju za posebno veče."] || "Ono što Piccante čini posebnim nije samo izbor jela, već način na koji se ona pripremaju i poslužuju – sa merom, ukusom i željom da gost za stolom zaista uživa. Svaki tanjir ima svoj karakter, bilo da dolazite na lagani obrok, poslovni ručak, večeru sa prijateljima, porodično okupljanje, koktel ili rezervaciju za posebno veče.",
+      image: "/images/o nama 3.webp",
+      alt: "Kulinarski specijaliteti",
+      imageRight: true,
+    },
+    {
+      text: dict["Verujemo da restoran nije samo mesto gde se jede. To je prostor za razgovor, susret, predah, proslavu i one trenutke koji se spontano produže jer su hrana, društvo i atmosfera na pravom mestu. Zato smo Piccante oblikovali kao restoran u kome se gost oseća prijatno, a svaki detalj – od ukusa i tanjira do ambijenta – ima svoju ulogu."] || "Verujemo da restoran nije samo mesto gde se jede. To je prostor za razgovor, susret, predah, proslavu i one trenutke koji se spontano produže jer su hrana, društvo i atmosfera na pravom mestu. Zato smo Piccante oblikovali kao restoran u kome se gost oseća prijatno, a svaki detalj – od ukusa i tanjira do ambijenta – ima svoju ulogu.",
+      image: "/images/o nama 4.webp",
+      alt: "Atmosfera restorana",
+      imageRight: false,
+    },
+    {
+      text: dict["Na meniju se susreću poznati ukusi, savremeni detalji i inspiracija iz različitih kuhinja sveta. Piccante je mesto gde ručak može da postane predah, večera mali ritual, a običan izlazak iskustvo koje se pamti."] || "Na meniju se susreću poznati ukusi, savremeni detalji i inspiracija iz različitih kuhinja sveta. Piccante je mesto gde ručak može da postane predah, večera mali ritual, a običan izlazak iskustvo koje se pamti.",
+      image: "/images/o nama 5.webp",
+      alt: "Gastro doživljaj",
+      imageRight: true,
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] flex flex-col font-sans">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       {/* Title Section with Parallax */}
       <ParallaxSection
@@ -117,7 +123,7 @@ export default function AboutPage() {
             className="text-center max-w-4xl mx-auto flex flex-col items-center"
           >
             <motion.h1 variants={fadeUp} className="font-serif text-[36px] md:text-[56px] text-white leading-tight">
-              Piccante – mesto gde Novi Sad uživa u poznatim svetskim ukusima
+              {dict["Piccante – mesto gde Novi Sad uživa u poznatim svetskim ukusima"] || "Piccante – mesto gde Novi Sad uživa u poznatim svetskim ukusima"}
             </motion.h1>
             <motion.div variants={lineGrow} className="w-[60px] h-[2px] bg-[#C22127] mt-8 origin-center"></motion.div>
           </motion.div>
@@ -191,14 +197,16 @@ export default function AboutPage() {
             className="text-center flex flex-col items-center"
           >
             <motion.h2 variants={fadeUp} className="font-serif text-[36px] md:text-[48px] text-white italic">
-              Dobro došli za sto.
+              {dict["Dobro došli za sto."] || "Dobro došli za sto."}
             </motion.h2>
             <motion.div variants={lineGrow} className="w-[40px] h-[2px] bg-[#C22127] mt-6 origin-center"></motion.div>
           </motion.div>
         </div>
       </ParallaxSection>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }
+
+

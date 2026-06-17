@@ -1,16 +1,28 @@
 "use client";
 
+import { use } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blogPosts';
+import { getDictionary } from '@/dictionaries/getDictionary';
 
-export default function BlogList() {
+export default function BlogList(props) {
+  const params = props.params || {};
+  const lang = params.lang || 'sr';
+  const dict = getDictionary(lang);
+  const t = (key) => dict?.[key] || key;
+
+  const getLocalizedHref = (path) => {
+    if (lang === 'sr') return path;
+    return `/${lang}${path === '/' ? '' : path}`;
+  };
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] overflow-x-hidden flex flex-col">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       <section className="pt-[140px] pb-12 px-6 md:px-12 flex-grow">
         <div className="max-w-7xl mx-auto">
@@ -26,7 +38,7 @@ export default function BlogList() {
             </h1>
             <div className="w-16 h-1 bg-[#C22127] mx-auto mb-6"></div>
             <p className="text-[#ededed]/70 text-lg max-w-2xl mx-auto">
-              Priče o dobrom ukusu, kvalitetnoj hrani i uživanju u svakom zalogaju.
+              {t("Priče o dobrom ukusu, kvalitetnoj hrani i uživanju u svakom zalogaju.")}
             </p>
           </motion.div>
 
@@ -40,10 +52,10 @@ export default function BlogList() {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
                 className="group flex flex-col bg-[#111111] rounded-xl overflow-hidden border border-white/5 hover:border-[#C22127]/30 transition-colors duration-300"
               >
-                <Link href={`/blog/${post.slug}`} className="block relative aspect-[4/3] overflow-hidden">
+                <Link href={getLocalizedHref(`/blog/${post.slug}`)} className="block relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={post.image}
-                    alt={post.title}
+                    alt={t(post.title)}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -52,20 +64,20 @@ export default function BlogList() {
                 </Link>
                 
                 <div className="p-6 flex flex-col flex-grow">
-                  <Link href={`/blog/${post.slug}`}>
+                  <Link href={getLocalizedHref(`/blog/${post.slug}`)}>
                     <h2 className="text-xl font-bold text-white mb-3 font-serif hover:text-[#C22127] transition-colors line-clamp-2">
-                      {post.title}
+                      {t(post.title)}
                     </h2>
                   </Link>
                   <p className="text-[#ededed]/80 text-sm leading-relaxed mb-6 flex-grow">
-                    {post.excerpt}
+                    {t(post.excerpt)}
                   </p>
                   
                   <Link 
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-sm font-bold text-white group-hover:text-[#C22127] transition-colors mt-auto"
+                    href={getLocalizedHref(`/blog/${post.slug}`)}
+                    className="inline-flex items-center text-sm font-bold text-white group-hover:text-[#C22127] transition-colors mt-auto uppercase"
                   >
-                    Pročitaj više
+                    {t("Pročitaj više")}
                     <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -78,7 +90,9 @@ export default function BlogList() {
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }
+
+

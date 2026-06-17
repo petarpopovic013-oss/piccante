@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Ako korisnik trazi pravi fajl (slike, JS, CSS), prekini procesuiranje i serviraj fajl
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 1. ROOT DOMEN (Početna stranica)
+# Ako korisnik poseti samo domen (npr. piccante.rs/), prikaži mu sr.html
+RewriteRule ^/?$ sr.html [L]
+
+# 2. GLAVNI JEZICI BEZ KOSE CRTE (npr. /sr, /en, /ru)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(sr|en|ru)/?$ $1.html [L]
+
+# 3. STRANICE SA PREFIKSOM JEZIKA (npr. /en/o-nama -> en/o-nama.html)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^((sr|en|ru)/.+)$ $1.html [L]
+
+# 4. DEFAULT SRPSKI (BEZ PREFIKSA) (npr. /o-nama -> sr/o-nama.html)
+# Ignorišemo rute koje već počinju sa sr, en ili ru
+RewriteCond %{DOCUMENT_ROOT}/sr/$1.html -f
+RewriteRule ^(?!sr/|en/|ru/)(.+)$ sr/$1.html [L]
+
+# (Opciono) Sakrivanje .html ekstenzije ako je neko rucno ukuca
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]

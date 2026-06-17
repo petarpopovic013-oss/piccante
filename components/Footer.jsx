@@ -5,7 +5,15 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Footer() {
+export default function Footer({ lang = 'sr', dict }) {
+  const t = (key) => dict?.[key] || key;
+
+  const getLocalizedHref = (path) => {
+    if (lang === 'sr') return path;
+    if (path === '/') return `/${lang}`;
+    return `/${lang}${path}`;
+  };
+
   return (
     <footer className="w-full flex flex-col font-sans">
 
@@ -49,23 +57,23 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-[#C22127] uppercase text-[11px] tracking-[0.2em] mb-4 font-bold"
-            >Pronađite Naš Restoran</motion.p>
+            >{t("Pronađite Naš Restoran")}</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-white font-serif text-[48px] font-normal tracking-[0.08em] uppercase mb-5 leading-none"
-            >Posetite Nas</motion.h2>
+            >{t("Posetite Nas")}</motion.h2>
             <p className="text-white text-[14px] leading-[1.8] mb-6">
-              Bulevar patrijarha Pavla 22, Novi Sad
+              {t("Bulevar patrijarha Pavla 22, Novi Sad")}
             </p>
-            <p className="text-white font-bold text-[13px] tracking-[0.15em] uppercase mb-2">Radno Vreme</p>
+            <p className="text-white font-bold text-[13px] tracking-[0.15em] uppercase mb-2">{t("Radno Vreme")}</p>
             <p className="text-white text-[13px] leading-[1.8]">
-              Svaki dan: 08:00h – 23:00h
+              {t("Svaki dan: 08:00h – 23:00h")}
             </p>
             <a href="https://www.google.com/maps/search/?api=1&query=Bulevar+patrijarha+Pavla+22,+Novi+Sad,+Srbija" target="_blank" rel="noopener noreferrer" className="inline-block mt-7 text-white/90 uppercase text-[11px] tracking-[0.2em] border-b border-[#C22127] pb-[3px] hover:text-[#C22127] transition-colors">
-              Prikaži Mapu
+              {t("Prikaži Mapu")}
             </a>
           </div>
         </motion.div>
@@ -98,20 +106,20 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.5 }}
               className="text-[#C22127] uppercase text-[11px] tracking-[0.2em] mb-4 font-bold"
-            >Rezervišite Vaš Sto</motion.p>
+            >{t("Rezervišite Vaš Sto")}</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-white font-serif text-[48px] font-normal tracking-[0.08em] uppercase mb-5 leading-none"
-            >Rezervacije</motion.h2>
+            >{t("Rezervacije")}</motion.h2>
             <p className="text-white text-[14px] leading-[1.8] mb-6 max-w-[320px] mx-auto">
-              Planirate nezaboravnu romantičnu večeru ili poseban trenutak sa najdražima? Osigurajte svoje mesto na vreme pozivom na naš broj.
+              {t("Planirate nezaboravnu romantičnu večeru ili poseban trenutak sa najdražima? Osigurajte svoje mesto na vreme pozivom na naš broj.")}
             </p>
-            <p className="text-white font-bold text-[13px] tracking-[0.15em] uppercase mb-2">Kontakt za Rezervacije</p>
+            <p className="text-white font-bold text-[13px] tracking-[0.15em] uppercase mb-2">{t("Kontakt za Rezervacije")}</p>
             <p className="text-white text-[13px] leading-[1.8]">
-              Telefon: +381 69 742208
+              {t("Telefon: +381 69 742208")}
             </p>
           </div>
         </motion.div>
@@ -130,7 +138,7 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
-            <Link href="/" className="inline-block group">
+            <Link href={getLocalizedHref("/")} className="inline-block group">
               <Image
                 src="/images/picante logo.webp"
                 alt="Piccante Restaurant Logo"
@@ -140,7 +148,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/50 text-[16px] leading-[1.8] max-w-md font-sans">
-              Piccante Restaurant predstavlja sinonim za beskompromisni kvalitet i autentično kulinarsko iskustvo u srcu Novog Sada. Spajamo najfinije sastojke sa strašću za inovacijom.
+              {dict["Piccante Restaurant predstavlja sinonim za beskompromisni kvalitet i autentično kulinarsko iskustvo u srcu Novog Sada. Spajamo najfinije sastojke sa strašću za inovacijom."] || "Piccante Restaurant predstavlja sinonim za beskompromisni kvalitet i autentično kulinarsko iskustvo u srcu Novog Sada. Spajamo najfinije sastojke sa strašću za inovacijom."}
             </p>
             <div className="flex gap-5 pt-2">
               <a href="https://www.instagram.com/piccante.ns/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group hover:bg-[#C22127] hover:border-[#C22127] transition-all duration-300">
@@ -166,26 +174,28 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-8">
-            <h3 className="text-white text-[13px] font-bold tracking-[0.25em] uppercase border-l-2 border-[#C22127] pl-4">Navigacija</h3>
+            <h3 className="text-white text-[13px] font-bold tracking-[0.25em] uppercase border-l-2 border-[#C22127] pl-4">{t("Navigacija")}</h3>
             <ul className="space-y-4 text-white/40 text-[13px] tracking-widest uppercase font-bold">
-              <li><Link href="/" className="hover:text-white hover:pl-2 transition-all duration-300 block">NASLOVNA</Link></li>
-              <li><Link href="/o-nama" className="hover:text-white hover:pl-2 transition-all duration-300 block">O NAMA</Link></li>
-              <li><Link href="/jelovnik" className="hover:text-white hover:pl-2 transition-all duration-300 block">JELOVNIK</Link></li>
-              <li><Link href="/kontakt" className="hover:text-white hover:pl-2 transition-all duration-300 block">KONTAKT</Link></li>
+              <li><Link href={getLocalizedHref("/")} className="hover:text-white hover:pl-2 transition-all duration-300 block">{t("NASLOVNA")}</Link></li>
+              <li><Link href={getLocalizedHref("/o-nama")} className="hover:text-white hover:pl-2 transition-all duration-300 block">{t("O NAMA")}</Link></li>
+              <li><Link href={getLocalizedHref("/jelovnik")} className="hover:text-white hover:pl-2 transition-all duration-300 block">{t("JELOVNIK")}</Link></li>
+              <li><Link href={getLocalizedHref("/kontakt")} className="hover:text-white hover:pl-2 transition-all duration-300 block">{t("KONTAKT")}</Link></li>
             </ul>
           </div>
 
           {/* Contact Column */}
           <div className="md:col-span-4 space-y-8">
-            <h3 className="text-white text-[13px] font-bold tracking-[0.25em] uppercase border-l-2 border-[#C22127] pl-4">Kontakt Info</h3>
+            <h3 className="text-white text-[13px] font-bold tracking-[0.25em] uppercase border-l-2 border-[#C22127] pl-4">{t("Kontakt Info")}</h3>
             <div className="space-y-6">
               <div className="space-y-2">
-                <p className="text-white/30 text-[11px] uppercase tracking-widest font-bold">Adresa</p>
-                <p className="text-white/70 text-[15px] font-sans">Bulevar patrijarha Pavla 22,<br /> Novi Sad, Srbija</p>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-bold">{t("Adresa")}</p>
+                <p className="text-white/70 text-[15px] font-sans">
+                  {dict["Bulevar patrijarha Pavla 22,\n Novi Sad, Srbija"] || "Bulevar patrijarha Pavla 22,\n Novi Sad, Srbija"}
+                </p>
               </div>
               <div className="space-y-2">
-                <p className="text-white/30 text-[11px] uppercase tracking-widest font-bold">Rezervacije</p>
-                <a href="tel:+38169742208" className="text-white text-2xl font-serif hover:text-[#C22127] transition-colors block">+381 69 742208</a>
+                <p className="text-white/30 text-[11px] uppercase tracking-widest font-bold">{t("Rezervacije")}</p>
+                <a href="tel:+38169742208" className="text-white text-2xl font-serif hover:text-[#C22127] transition-colors block">{t("+381 69 742208")}</a>
               </div>
             </div>
           </div>
@@ -194,7 +204,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="max-w-[1280px] mx-auto mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-white/20 text-[10px] uppercase tracking-[0.2em] font-bold">
-          <p>&copy; {new Date().getFullYear()} Piccante Restaurant. Sva prava zadržana.</p>
+          <p>&copy; {new Date().getFullYear()} Piccante Restaurant. {t("Sva prava zadržana.")}</p>
           <p>Developed by Petar Popović</p>
         </div>
       </motion.div>

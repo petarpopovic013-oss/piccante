@@ -1,14 +1,21 @@
 "use client";
 
+import { use } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, Clock } from 'lucide-react';
+import { getDictionary } from '@/dictionaries/getDictionary';
 
-export default function ContactPage() {
+export default function ContactPage(props) {
+  const params = props.params || {};
+  const lang = params.lang || 'sr';
+  const dict = getDictionary(lang);
+  const t = (key) => dict?.[key] || key;
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] flex flex-col font-sans">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
 
       <section className="flex-1 pt-[180px] pb-[80px] px-6 lg:px-10 max-w-[1280px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -21,9 +28,9 @@ export default function ContactPage() {
             className="lg:col-span-5 space-y-12"
           >
             <div>
-              <h1 className="font-serif text-[56px] md:text-[72px] text-white mb-6 leading-tight">Kontakt</h1>
+              <h1 className="font-serif text-[56px] md:text-[72px] text-white mb-6 leading-tight">{t("Kontakt")}</h1>
               <p className="text-white/60 text-lg leading-relaxed">
-                Dobrodošli u Piccante. Za sve informacije i rezervacije, stojimo vam na raspolaganju.
+                {dict["Dobrodošli u Piccante. Za sve informacije i rezervacije, stojimo vam na raspolaganju."] || "Dobrodošli u Piccante. Za sve informacije i rezervacije, stojimo vam na raspolaganju."}
               </p>
             </div>
 
@@ -34,9 +41,9 @@ export default function ContactPage() {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">Rezervacije</h3>
+                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">{t("Rezervacije")}</h3>
                   <a href="tel:+38169742208" className="text-white text-2xl font-serif hover:text-[#C22127] transition-colors">
-                    +381 69 742208
+                    {t("+381 69 742208")}
                   </a>
                 </div>
               </div>
@@ -47,9 +54,9 @@ export default function ContactPage() {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">Adresa</h3>
+                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">{t("Adresa")}</h3>
                   <p className="text-white/80 text-xl font-serif leading-snug">
-                    Bulevar patrijarha Pavla 22,<br /> Novi Sad, Srbija
+                    {t("Bulevar patrijarha Pavla 22, Novi Sad")}<br /> {lang === 'en' ? 'Serbia' : lang === 'ru' ? 'Сербия' : 'Srbija'}
                   </p>
                 </div>
               </div>
@@ -60,9 +67,9 @@ export default function ContactPage() {
                   <Clock size={20} />
                 </div>
                 <div>
-                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">Radno Vreme</h3>
+                  <h3 className="text-white text-[13px] font-bold tracking-[0.2em] uppercase mb-2">{t("Radno Vreme")}</h3>
                   <p className="text-white/80 text-xl font-serif">
-                    Svaki dan: 08:00h – 23:00h
+                    {t("Svaki dan: 08:00h – 23:00h")}
                   </p>
                 </div>
               </div>
@@ -95,7 +102,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </main>
   );
 }
+
+

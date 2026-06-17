@@ -4,22 +4,56 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const slides = [
-  {
-    image: '/images/hero1.webp',
-    headingTop: <span className="text-white">Mesto uživanja</span>,
-    headingBottom: <><span className="text-[#C22127] font-bold">u srcu</span> <span className="text-white">Novog Sada</span></>,
-    subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
-  },
-  {
-    image: '/images/hero2.webp',
-    headingTop: <span className="text-white">Ukusi koji</span>,
-    headingBottom: <><span className="text-[#C22127] font-bold">imaju</span> <span className="text-white">karakter</span></>,
-    subtitle: "Dobrodošli u mesto gde svaki obrok ima svoj ritam, od doručka i poslovnog ručka do večere sa  dragim ljudima. Poznati ukusi, pažljivo odabrani sastojci i prijatna atmosfera čine Piccante restoranom u koji se rado dolazi i često vraća."
-  }
-];
+export default function Hero({ lang = 'sr', dict }) {
+  const t = (key) => dict?.[key] || key;
 
-export default function Hero() {
+  const slidesSr = [
+    {
+      image: '/images/hero1.webp',
+      headingTop: <span className="text-white">Mesto uživanja</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">u srcu</span> <span className="text-white">Novog Sada</span></>,
+      subtitle: "Mesto gde se spajaju vrhunska gastronomija, bezvremenska elegancija i topla atmosfera. Stvaramo nezaboravne kulinarske uspomene od 2017. godine."
+    },
+    {
+      image: '/images/hero2.webp',
+      headingTop: <span className="text-white">Ukusi koji</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">imaju</span> <span className="text-white">karakter</span></>,
+      subtitle: "Dobrodošli u mesto gde svaki obrok ima svoj ritam, od doručka i poslovnog ručka do večere sa dragim ljudima. Poznati ukusi, pažljivo odabrani sastojci i prijatna atmosfera čine Piccante restoranom u koji se rado dolazi i često vraća."
+    }
+  ];
+
+  const slidesEn = [
+    {
+      image: '/images/hero1.webp',
+      headingTop: <span className="text-white">A place of enjoyment</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">in the heart</span> <span className="text-white">of Novi Sad</span></>,
+      subtitle: "A place where outstanding gastronomy, timeless elegance and a warm atmosphere come together. We have been creating unforgettable culinary memories since 2017."
+    },
+    {
+      image: '/images/hero2.webp',
+      headingTop: <span className="text-white">Flavours with</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">true</span> <span className="text-white">character</span></>,
+      subtitle: "Welcome to a place where every meal has its rhythm, from breakfast and business lunch to dinner with loved ones. Familiar flavours, carefully selected ingredients and a pleasant atmosphere make Piccante a restaurant you gladly visit and often return to."
+    }
+  ];
+
+  const slidesRu = [
+    {
+      image: '/images/hero1.webp',
+      headingTop: <span className="text-white">Место наслаждения</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">в самом сердце</span> <span className="text-white">Нови-Сада</span></>,
+      subtitle: "Место, где соединяются высокая гастрономия, вневременная элегантность и тёплая атмосфера. Мы создаём незабываемые кулинарные воспоминания с 2017 года."
+    },
+    {
+      image: '/images/hero2.webp',
+      headingTop: <span className="text-white">Вкусы с</span>,
+      headingBottom: <><span className="text-[#C22127] font-bold">настоящим</span> <span className="text-white">характером</span></>,
+      subtitle: "Добро пожаловать в место, где у каждого блюда свой ритм, от завтрака и делового обеда до ужина с близкими. Знакомые вкусы, тщательно отобранные ингредиенты и приятная атмосфера делают Piccante рестораном, куда с радостью приходят и часто возвращаются."
+    }
+  ];
+
+  const slides = lang === 'en' ? slidesEn : lang === 'ru' ? slidesRu : slidesSr;
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -27,7 +61,7 @@ export default function Hero() {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative w-full min-h-[600px] h-screen md:min-h-[700px] overflow-hidden bg-black">
@@ -77,11 +111,11 @@ export default function Hero() {
               </p>
 
               <div className="flex items-center space-x-6 text-[12px] md:text-[13px] uppercase tracking-[0.15em] font-sans font-bold">
-                <a href="/jelovnik" className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
-                  Jelovnik
+                <a href={lang === 'sr' ? '/jelovnik' : `/${lang}/jelovnik`} className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
+                  {t("Jelovnik")}
                 </a>
                 <a href="tel:+38169742208" className="border-b-[2px] border-white pb-1 text-white hover:text-[#C22127] hover:border-[#C22127] transition-colors">
-                  Pozovite nas
+                  {t("Pozovite nas")}
                 </a>
               </div>
             </motion.div>
