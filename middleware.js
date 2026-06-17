@@ -25,7 +25,7 @@ export function middleware(request) {
   // If missing locale, rewrite to /sr/...
   if (pathnameIsMissingLocale) {
     const newUrl = new URL(`/sr${pathname === '/' ? '' : pathname}`, request.url);
-    return NextResponse.rewrite(newUrl);
+    return NextResponse.redirect(newUrl);
   }
 
   return NextResponse.next();
