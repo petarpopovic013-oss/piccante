@@ -184,6 +184,7 @@ export default function KartaPica(props) {
                 } else if (item.name) {
                   // Fallback to checking just the name if combined key is missing
                   translatedName = dict[item.name] || item.name;
+                  translatedDesc = item.description ? (dict[item.description] || item.description) : "";
                 }
 
                 return (
