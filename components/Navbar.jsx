@@ -29,7 +29,7 @@ export default function Navbar({ lang = 'sr', dict }) {
   ];
 
   const getCleanPath = () => {
-    let clean = pathname.replace(/^\/(en|ru)/, '');
+    let clean = pathname.replace(/^\/(en|ru|sr)/, '');
     return clean === '' ? '/' : clean;
   };
 

@@ -17,15 +17,22 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
+  // If user explicitly visits /sr or /sr/...
+  // redirect them to remove the /sr prefix for clean URLs.
+  if (pathname.startsWith('/sr/') || pathname === '/sr') {
+    const newPath = pathname.replace(/^\/sr/, '') || '/';
+    return NextResponse.redirect(new URL(newPath, request.url));
+  }
+
   // Check if the pathname is missing a locale
-  const pathnameIsMissingLocale = locales.every(
+  const pathnameIsMissingLocale = ['en', 'ru'].every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // If missing locale, rewrite to /sr/...
+  // If missing locale, rewrite to /sr/... so it uses the sr translations internally
   if (pathnameIsMissingLocale) {
     const newUrl = new URL(`/sr${pathname === '/' ? '' : pathname}`, request.url);
-    return NextResponse.redirect(newUrl);
+    return NextResponse.rewrite(newUrl);
   }
 
   return NextResponse.next();
